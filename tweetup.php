@@ -21,7 +21,7 @@ try {
 	));
 	
 	function milliseconds($time = null) {
-		return (int) round($time ? (int) $time : microtime(true) * 1000);
+		return (int) round(($time ? (int) $time : microtime(true)) * 1000);
 	}
 
 	$since = (int) @file_get_contents('tweetup.since');
@@ -35,7 +35,7 @@ try {
 	}
 	
 	echo 'Processing activity since ' . date('Y-m-d H:i:s', $since / 1000) . ' (' . $since . ')' . PHP_EOL;
-	
+
 	$tweets = array();
 	
 	if ($config['tweet_event']) {
