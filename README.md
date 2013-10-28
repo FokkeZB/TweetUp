@@ -8,27 +8,14 @@ This simple PHP script automagically publishes your [Meetup](http://meetup.com) 
 
 <pre>0 * * * * wget -O - -q -t 1 http://www.website.com/tweetup/tweetup.php</pre>
 
-## Published activity
-
-### What?
-Right now the script only publishes events and discussions. Feel free to fork the code and add more activities to be published. I'm working on photos and discussion posts myself.
-
-### How?
-The text for the tweet can be set in `config.php`.
-
-### When?
-The script will create a `tweetup.since` file to keep track of when it was run, so that only newer activities will be published. It will fallback to the inode change time of the `config.php` file and you can also set a time to start at yourself.
+## What & When
+The script publishes most of the activity in the activity stream and newly announced meetups. The tweet for the meetup can be set in the config. For now, the texts for the other activities are hard-coded in the script. On the first run, no activities will be published and a `tweetup.last` file will be created holding the time of the newest activity found. On the next run it will publish all newer activies and meetups.
 
 ## Dependecies
 This script relies on two Github-hosted project that have been [subtree-merged](https://help.github.com/articles/working-with-subtree-merge) into this project for convenience:
 
 * [Meetup](https://github.com/FokkeZB/Meetup): Simple PHP Meetup API client
 * [Codebird](https://github.com/mynetx/codebird-php): Great PHP Twitter API client
-
-## Roadmap
-* Support more activities, like photos and posts.
-* Store an UID for each processed activity instead or next to the existing method for deciding if an activity is new and should be published. 
-* Enjoy being to lazy to tweet myself...
 
 ## License
 
